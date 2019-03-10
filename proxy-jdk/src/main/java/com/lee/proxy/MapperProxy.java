@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 /**
  * 代理逻辑实现
- * 此proxy不仅仅只是适用UserDao，还适用于其他所有的Dao
+ * 此proxy不仅仅只是适用UserMapper，还适用于其他所有的Mapper
  */
 public class MapperProxy<T> implements InvocationHandler {
 

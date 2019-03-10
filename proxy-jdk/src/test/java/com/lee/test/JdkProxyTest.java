@@ -1,6 +1,6 @@
 package com.lee.test;
 
-import com.lee.dao.UserMapper;
+import com.lee.mapper.UserMapper;
 import com.lee.proxy.MapperProxy;
 import com.lee.proxy.MapperProxyFactory;
 import org.junit.Test;

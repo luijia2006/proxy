@@ -1,4 +1,4 @@
-package com.lee.dao;
+package com.lee.mapper;
 
 public interface IUserDao {
 

@@ -1,6 +1,6 @@
-package com.lee.dao;
+package com.lee.mapper;
 
-import com.lee.dao.impl.UserDaoImpl;
+import com.lee.mapper.impl.UserDaoImpl;
 import com.lee.proxy.UserDaoProxy;
 import org.junit.Test;
 
