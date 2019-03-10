@@ -1,6 +1,6 @@
 package com.lee.proxy;
 
-import com.lee.mapper.IUserDao;
+import com.lee.dao.IUserDao;
 
 /**
  * 代理逻辑在代理类中，而不是由用户自定义，然后传进来

@@ -1,6 +1,6 @@
-package com.lee.mapper.impl;
+package com.lee.dao.impl;
 
-import com.lee.mapper.IUserDao;
+import com.lee.dao.IUserDao;
 
 public class UserDaoImpl implements IUserDao {
 
