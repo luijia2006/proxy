@@ -11,9 +11,17 @@
     <properties>
         <java.version>1.8</java.version>
         <junit.version>4.12</junit.version>
+        <javapoet.version>1.11.1</javapoet.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.squareup/javapoet -->
+        <dependency>
+            <groupId>com.squareup</groupId>
+            <artifactId>javapoet</artifactId>
+            <version>${javapoet.version}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>

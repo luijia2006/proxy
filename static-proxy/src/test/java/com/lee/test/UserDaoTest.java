@@ -1,5 +1,6 @@
-package com.lee.dao;
+package com.lee.test;
 
+import com.lee.dao.IUserDao;
 import com.lee.dao.impl.UserDaoImpl;
 import com.lee.proxy.UserDaoProxy;
 import org.junit.Test;
