@@ -1,28 +1,25 @@
 package com.lee.test;
 
-import com.lee.dao.IUserDao;
-import com.lee.dao.impl.UserDaoImpl;
-import com.lee.handler.TrasactionInvocationHandler;
+import com.lee.dao.UserMapper;
+import com.lee.proxy.MapperProxy;
+import com.lee.proxy.MapperProxyFactory;
 import org.junit.Test;
-
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Proxy;
 
 public class JdkProxyTest {
 
     @Test
     public void testProxy() {
-        // 目标对象 - 被代理对象
-        IUserDao target = new UserDaoImpl();
 
-        // 事务处理器
-        InvocationHandler handler = new TrasactionInvocationHandler(target);
+        // 代理逻辑处理handler
+        MapperProxy mapperProxy = new MapperProxy(UserMapper.class);
 
+        // 代理实例工厂
+        MapperProxyFactory proxyFactory = new MapperProxyFactory(UserMapper.class);
 
         // 获取代理对象
-        IUserDao proxyInstance = (IUserDao) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(),
-                target.getClass().getInterfaces(), handler);
+        UserMapper mapper = (UserMapper) proxyFactory.newInstance(mapperProxy);
 
-        proxyInstance.delete(1);
+        int delete = mapper.delete(1);
+        System.out.println("result = " + delete);
     }
 }

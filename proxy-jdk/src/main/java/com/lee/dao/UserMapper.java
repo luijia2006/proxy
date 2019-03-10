@@ -1,6 +1,6 @@
 package com.lee.dao;
 
-public interface IUserDao {
+public interface UserMapper {
 
     int delete(int id);
 }
