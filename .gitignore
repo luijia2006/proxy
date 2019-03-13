@@ -5,9 +5,11 @@
 /proxy-java-file/*.iml
 /proxy-jdk/*.iml
 /proxy-none-java-file/*.iml
+/proxy-none-java-file-plus/*.iml
 /static-proxy/*.iml
 /proxy-cglib/target/
 /proxy-java-file/target/
 /proxy-jdk/target/
 /proxy-none-java-file/target/
+/proxy-none-java-file-plus/target/
 /static-proxy/target/
