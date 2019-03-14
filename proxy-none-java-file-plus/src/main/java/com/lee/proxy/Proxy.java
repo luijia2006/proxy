@@ -45,19 +45,22 @@ public class Proxy {
             proxyJava.append(ENTER).append(TAB_STR).append("@Override").append(ENTER)
                     .append(TAB_STR).append("public ").append(returnTypeName).append(" ").append(method.getName()).append("(");
 
-            // 方法参数
-            List<String> paramList = new ArrayList<>();
+            List<String> paramList = new ArrayList<>();     // 方法参数值
+            List<String> paramTypeList = new ArrayList<>(); // 方法参数类型
             for(int i=0; i<paramTypes.length; i++) {
                 if (i != 0) {
                     proxyJava.append(", ");
                 }
-                proxyJava.append(paramTypes[i].getTypeName()).append(" param").append(i);
+                String typeName = paramTypes[i].getTypeName();
+                proxyJava.append(typeName).append(" param").append(i);
                 paramList.add("param" + i);
+                paramTypeList.add(typeName+".class");
             }
             proxyJava.append(") {").append(ENTER)
                     .append(TAB_STR).append(TAB_STR).append("try {").append(ENTER)
                     .append(TAB_STR).append(TAB_STR).append(TAB_STR)
-                    .append("Method method = ").append(interface_.getName()).append(".class.getMethod(\"").append(method.getName()).append("\");")
+                    .append("Method method = ").append(interface_.getName()).append(".class.getDeclaredMethod(\"")
+                    .append(method.getName()).append("\",").append(String.join(",", paramTypeList)).append(");")
                     .append(ENTER).append(TAB_STR).append(TAB_STR).append(TAB_STR);
             if (!"void".equals(returnTypeName)) {
                 proxyJava.append("return (").append(returnTypeName).append(")");
@@ -75,14 +78,14 @@ public class Proxy {
         proxyJava .append("}");
 
         // 这里可以将字符串生成java文件，看看源代码对不对
-        String proxyJavaFileDir = System.getProperty("user.dir") + File.separator + "proxy-none-java-file-plus"
+        /*String proxyJavaFileDir = System.getProperty("user.dir") + File.separator + "proxy-none-java-file-plus"
                 + String.join(File.separator, new String[]{"","src","main","java",""})
                 + PROXY_PACKAGE_NAME.replace(".", File.separator) + File.separator;
         File f = new File(proxyJavaFileDir + PROXY_FILE_NAME + ".java");
         FileWriter fw = new FileWriter(f);
         fw.write(proxyJava.toString());
         fw.flush();
-        fw.close();
+        fw.close();*/
 
         return proxyJava.toString();
     }

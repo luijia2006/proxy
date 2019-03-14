@@ -8,5 +8,5 @@ public interface UserMapper {
 
     User getUserById(Integer id);
 
-    void delete(Integer id);
+    Integer delete(Integer id);
 }
