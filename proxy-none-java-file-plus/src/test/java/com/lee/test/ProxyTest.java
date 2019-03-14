@@ -3,10 +3,12 @@ package com.lee.test;
 import com.lee.mapper.UserMapper;
 import com.lee.proxy.InvocationHandler;
 import com.lee.proxy.Proxy;
+import org.junit.Test;
 
 public class ProxyTest {
 
-    public static void main(String[] args) throws Exception {
+    @Test
+    public void test() throws Exception {
         InvocationHandler mapperProxy = new MapperProxy();
         UserMapper userMapper = Proxy.newInstance(UserMapper.class, mapperProxy);
         System.out.println(userMapper.delete(1));
