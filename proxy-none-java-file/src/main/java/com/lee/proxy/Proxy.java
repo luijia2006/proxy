@@ -13,7 +13,7 @@ public class Proxy {
     private static final String PROXY_FILE_NAME = "$Proxy0";
 
     /**
-     * 生成接口实现类的源代码, 并持久化到java文件
+     * 生成接口实现类的源代码
      * @param interface_
      * @throws Exception
      */

@@ -21,7 +21,7 @@ public class Proxy {
     private static final String PROXY_PACKAGE_NAME = Proxy.class.getPackage().getName();
 
     /**
-     * 生成接口实现类的源代码, 并持久化到java文件
+     * 生成接口实现类的源代码
      * @param interface_
      * @throws Exception
      */

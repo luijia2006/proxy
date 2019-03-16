@@ -9,7 +9,8 @@ public class ProxyTest {
 
     @Test
     public void test() throws Exception {
-        InvocationHandler mapperProxy = new MapperProxy();
+        // InvocationHandler mapperProxy = new MapperProxy();
+        InvocationHandler mapperProxy = new DaoProxy();
         UserMapper userMapper = Proxy.newInstance(UserMapper.class, mapperProxy);
         System.out.println(userMapper.delete(1));
         System.out.println("=================");
