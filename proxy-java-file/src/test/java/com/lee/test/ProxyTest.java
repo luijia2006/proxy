@@ -8,6 +8,7 @@ public class ProxyTest {
 
     @Test
     public void proxyTest() throws Exception {
+        // Proxy.generateJavaFileByJavaPoet(UserMapper.class);
         UserMapper userMapper = Proxy.newInstance(UserMapper.class);
         userMapper.getUserById(12);
     }

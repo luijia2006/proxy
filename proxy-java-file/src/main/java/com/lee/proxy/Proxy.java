@@ -126,12 +126,11 @@ public class Proxy {
         Iterable<? extends JavaFileObject> fileObjects = manager.getJavaFileObjects(proxyJavaFileDir + PROXY_CLASS_NAME + ".java");
         //编译任务
         JavaCompiler.CompilationTask task = compiler.getTask(null, manager, null, null, null, fileObjects);
-        //开始编译，执行完可在当前目录下看到.class文件
+        //开始编译，执行完可在指定目录下看到.class文件
         task.call();
         //关闭文件管理者
         manager.close();
     }
-
 
     public static <T> T newInstance(Class<T> interface_) throws Exception{
         String proxyJavaFileDir = SRC_JAVA_PATH + interface_.getPackage().getName().replace(".", File.separator) + File.separator;
@@ -142,7 +141,7 @@ public class Proxy {
         // 2、编译$Proxy0.java，生成$Proxy0.class到磁盘
         compileJavaFile(proxyJavaFileDir);
 
-        // 3、加载$Proxy0.class，并创建其实例对象（代理实例对象
+        // 3、加载$Proxy0.class，并创建其实例对象（代理实例对象）
         MyClassLoader loader = new MyClassLoader(proxyJavaFileDir, interface_);
         Class<?> $Proxy0 = loader.findClass(PROXY_CLASS_NAME);
         return (T)$Proxy0.newInstance();
